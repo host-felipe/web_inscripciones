@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inscribirse.css">
+    <title>Inscribir Club de Fútbol</title>
+</head>
+<body>
+    <div class="form-container">
+        <div class="header">
+            <h1 class="title">Inscripción</h1>
+        </div>
+        <iframe id="googleForm" src="https://docs.google.com/forms/d/e/1FAIpQLScD2KG2obGAZJcWsFWZbR88Nx_CYpdamkfS957FwZ5V8oNNyA/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Cargando...</iframe>
+        <div class="footer">
+            <button class="back-button" onclick="window.location.href='index.html'">Volver al Inicio</button>
+        </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var iframe = document.getElementById('googleForm');
+
+        iframe.onload = function() {
+          var initialHeight = iframe.contentWindow.document.body.scrollHeight;
+
+          setInterval(function() {
+            var currentHeight = iframe.contentWindow.document.body.scrollHeight;
+
+            if (currentHeight !== initialHeight) {
+              initialHeight = currentHeight;
+
+              if (currentHeight < 600) {  // Ajusta este valor si es necesario según la altura real de tu página de confirmación
+                window.location.href = "https://fwlip307.github.io/web-registros/";
+              }
+            }
+          }, 1000); // Verifica cada segundo
+        };
+      });
+    </script>
+</body>
+</html>
